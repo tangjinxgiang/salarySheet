@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="Refresh" content="2" >   -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no;">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <title>工资条首页</title>
+  <script src="js/zepto.js"></script>
+  <link href="css/weui.css" rel="stylesheet" />
+  <link href="css/demos.css" rel="stylesheet" />
+  <link href="css/jquery-weui.min.css" rel="stylesheet" />
+  <script src="js/jquery-2.1.4.js"></script>
+  <script src="js/jquery-weui.min.js"></script>
+  <script src="js/fastclick.js"></script>
+  <link rel="stylesheet" href="font/iconfont.css">
+  <link rel="stylesheet" href="css/home.css">
+  <script>
+  $(function(){
+    // 客户分类维护量
+    function load_home() {
+        $(".chart_map").html('<object type="text/html" data="tu.html" width="100%" height="100%"></object>')
+    }
+    load_home();
+
+    // 计算器点击加减放大缩小
+      $('.weui-count>a').each(function(index, el) {
+        var Time = 0;
+        var ctime = null;
+
+        $(this).click(function(event) {
+          clearInterval(ctime);
+          $(this).removeClass('suoxiao').addClass('fangda');
+          Time = 0;
+          var Tis = $(this);
+          ctime = setInterval(function(){
+            Time++;
+            console.log(Time)
+            if(Time >= 2){
+              Tis.removeClass('fangda').addClass('suoxiao');
+              clearInterval(ctime);
+            }
+          },800)
+        });
+    });
+    })
+  </script>
+</head>
+<body>
+    <div class="weui-tab">
+      <div class="weui-tab__bd">
+        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+          <div class="header">
+            <div class="head_top" onclick="window.location.href= 'datails.html';return false">
+              <i>实发工资(元)</i>
+              <h2>6,600</h2>
+            </div>
+            <div class="head_buttom">
+              <div class="head_b_left" onclick="window.location.href= 'datails.html';return false">
+                <span>发薪标题</span>
+                <p>2018年05月薪资</p>
+              </div>
+              <div class="head_b_right" onclick="window.location.href= 'list.html';return false">
+                <span>查看历史</span>
+                <p class="iconfont icon-chakanlishijilu"></p>
+              </div>
+            </div>
+          </div>
+          <div class="chart">
+            <div class="chart_text">
+              <div class="txt_left">
+                <div class="weui-count"> <!--计数器 -->
+                  <a class="weui-count__btn weui-count__decrease">－</a>
+                  <input class="weui-count__number" type="number" value="2018" disabled/>年
+                  <a class="weui-count__btn weui-count__increase">＋</a>
+                </div>
+              </div>
+              <div class="txt_right">
+                  <div class="txt_r_box">
+                    <p>总收入（元）<span>13,200</span></p>
+                    <hr class="hr">
+                    <p>月平均（元）<span>13,200</span></p>
+                  </div>
+              </div>
+            </div>
+            <div class="chart_map">
+                      <!--  图表-->
+            </div>
+          </div>
+        </div>
+        <div id="tab2" class="weui-tab__bd-item">
+          <div class="tab2_title">
+            <img src="image/tx.jpg" alt="">
+            <div class="names">
+              <p>张三</p>
+              <span>小不点软件有限公司</span>
+            </div>
+          </div>
+          <ul>
+            <li><i class="iconfont icon-shenfenzheng1"></i><span>身份证</span><em>431229111988885544</em></li>
+            <li onclick="window.location.href= 'guanyu.html';return false"><i class="iconfont icon-guanyuwomen"></i><span>关于我们</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="weui-tabbar">
+        <a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+          <div class="weui-tabbar__icon">
+            <i class="iconfont icon-gongzidan"></i>
+          </div>
+          <p class="weui-tabbar__label">工资条</p>
+        </a>
+        <a href="#tab2" class="weui-tabbar__item">
+          <div class="weui-tabbar__icon">
+            <i class="iconfont icon-navig-wode"></i>
+          </div>
+          <p class="weui-tabbar__label">我的</p>
+        </a>
+      </div>
+
+    </div>
+    <script type="text/javascript">
+    var MAX = 9999, MIN = 2018;
+    $('.weui-count__decrease').click(function (e) {
+      var $input = $(e.currentTarget).parent().find('.weui-count__number');
+      var number = parseInt($input.val() || "0") - 1
+      if (number < MIN) number = MIN;
+      $input.val(number)
+    })
+    $('.weui-count__increase').click(function (e) {
+      var $input = $(e.currentTarget).parent().find('.weui-count__number');
+      var number = parseInt($input.val() || "0") + 1
+      if (number > MAX) number = MAX;
+      $input.val(number)
+    })
+
+    $('.delete-swipeout').click(function () {
+      $(this).parents('.weui-cell').remove()
+    })
+    $('.close-swipeout').click(function () {
+      $(this).parents('.weui-cell').swipeout('close')
+    })
+
+
+
+    </script>
+</body>
+</html>

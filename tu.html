@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/jquery-2.1.4.js"></script>
+  <!-- 图表 -->
+  <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+  <script src="https://img.hcharts.cn/highcharts/highcharts-more.js"></script>
+  <!-- <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script> -->
+  <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+  <style media="screen">
+  html,body{
+    margin: 0;padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #container{
+    height: 100%;
+  }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+    <script>
+    $(function(){
+      // $('tspan').text('111')
+    })
+    var chart = Highcharts.chart('container', {
+      chart: {
+	  zoomType: 'x', //缩放
+          panning: true,
+	  panKey: 'shift', //pc端
+          pinchType:'x'
+
+      },
+      title: {
+        text: ''
+      },
+      subtitle: {
+        text: ''
+      },
+      xAxis: {
+        categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+      },
+      tooltip: {//提示框
+	shared: true,
+	useHTML: true,
+	headerFormat: '<small>{point.key}月份</small><table>',
+	pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+	'<td style="text-align: right"><b>{point.y}k</b></td></tr>',
+	footerFormat: '</table>',
+	valueDecimals: 2,
+        crosshairs: [{ //设置准星线样式
+	width: 1, //y轴 宽度 颜色
+	color: 'transparent'
+}, {
+	width: 1, //x轴
+	color: 'pink'
+	}],
+	followTouchMove:false //单指操作平移
+},
+      series: [{
+        name: '实发',
+        type: 'column',
+        colorByPoint: true,
+        data: [0.2, 8, 10, 1, 14, 1, 1, 5, 6.4, 0, 0, 0],
+        lineWidth: 10,
+        showInLegend: false
+
+      }],
+      yAxis: {
+        title: {
+			    text: '单位/千元'
+		    },
+        labels: { //y轴数字加单位
+          formatter:function(){
+            return (this.value+"k");
+          }
+        }
+      },
+      credits:{
+        //enabled: false // 禁用版权信息
+	text: '小糖软件',
+	href: 'http://www.baidu.com'
+
+      }
+});
+    </script>
+</body>
+</html>
