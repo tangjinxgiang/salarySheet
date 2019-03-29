@@ -30,12 +30,12 @@
     })
     var chart = Highcharts.chart('container', {
       chart: {
-					zoomType: 'x', //缩放
+	  zoomType: 'x', //缩放
           panning: true,
-					panKey: 'shift', //pc端
+	  panKey: 'shift', //pc端
           pinchType:'x'
 
-				},
+      },
       title: {
         text: ''
       },
@@ -46,22 +46,22 @@
         categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
       },
       tooltip: {//提示框
-				shared: true,
-				useHTML: true,
-				headerFormat: '<small>{point.key}月份</small><table>',
-				pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
-				'<td style="text-align: right"><b>{point.y}k</b></td></tr>',
-				footerFormat: '</table>',
-				valueDecimals: 2,
+	shared: true,
+	useHTML: true,
+	headerFormat: '<small>{point.key}月份</small><table>',
+	pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+	'<td style="text-align: right"><b>{point.y}k</b></td></tr>',
+	footerFormat: '</table>',
+	valueDecimals: 2,
         crosshairs: [{ //设置准星线样式
-						width: 1, //y轴 宽度 颜色
-						color: 'transparent'
-				}, {
-						width: 1, //x轴
-						color: 'pink'
-				}],
-        followTouchMove:false //单指操作平移
-			},
+	width: 1, //y轴 宽度 颜色
+	color: 'transparent'
+}, {
+	width: 1, //x轴
+	color: 'pink'
+	}],
+	followTouchMove:false //单指操作平移
+},
       series: [{
         name: '实发',
         type: 'column',
@@ -83,8 +83,8 @@
       },
       credits:{
         //enabled: false // 禁用版权信息
-				text: '铭图软件',
-				href: 'http://www.baidu.com'
+	text: '小糖软件',
+	href: 'http://www.baidu.com'
       }
 });
     </script>
