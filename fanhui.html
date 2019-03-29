@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+  <style media="screen">
+  *{margin: 0;padding: 0;}
+  html,body{
+    height: 100%;
+  }
+  body{
+    position: relative;
+  }
+    #btn1{
+      width: 100%;
+      height: 100%;
+      background: red;
+    }
+    #btn2{
+      width: 100%;
+      height: 100%;
+      background: yellow;
+      display:none;
+    }
+    .div{
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      background: #fff;
+      position: fixed;
+      bottom:0;
+      z-index: 1000;
+      display: flex;
+    }
+    .div a{
+      text-align: center;
+      flex: 1;
+    }
+    .box{
+      width: 100%;
+      height: 50%;
+      background: rgb(202, 1, 238);
+      text-align: center;
+      line-height: 400px;
+    }
+    .box>a{
+      font-size: 40px;
+      color:#fff;
+      font-weight: bold;
+      font-size: #888;
+      text-decoration: none;
+    }
+    .active{
+      background: rgb(209, 36, 178);
+      font-size: 28px;
+      color:#fff;
+    }
+  </style>
+  <script type="text/javascript">
+     window.onload = function(){
+        let has = window.location.hash;
+        if(has == '#btn2'){
+          $('.a2').trigger('click');
+        }
+     }
+  </script>
+</head>
+<body>
+  <div id="btn1"><h1>页面一</h1></div>
+  <div id="btn2"><h1>页面二</h1>
+
+  <div class="box">
+    <a href="http://www.baidu.com">我是百度</a>
+  </div>
+  </div>
+  <div class="div">
+    <a class="a1 active" href="#btn1">按钮1</a>
+    <a class="a2" href="#btn2">按钮2</a>
+  </div>
+  <script type="text/javascript">
+    $(function(){
+      $('.a1').click(function(event) {
+        $('#btn1').css('display','block')
+        $('#btn2').css('display', 'none');
+        $(this).addClass('active').siblings().removeClass('active');
+        window.location.hash = '#btn1';
+        console.log(window.location.hash)
+      });
+      $('.a2').click(function(event) {
+        $('#btn2').css('display','block')
+        $('#btn1').css('display', 'none');
+        $(this).addClass('active').siblings().removeClass('active');
+        window.location.hash = '#btn2';
+        console.log(window.location.hash)
+      });
+    })
+  </script>
+</body>
+</html>

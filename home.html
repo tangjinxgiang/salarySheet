@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no;">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/weui.min.css">
+  <link rel="stylesheet" href="css/home.css">
+  <title>绑定</title>
+  <style media="screen">
+  header{
+    width: 100%;
+    height: 26%;
+    background: linear-gradient(45deg, #498bc7, #79aad2);
+    position: relative;
+  }
+  header>i{
+    width:88px;
+    height: 88px;
+    background: url(image/dy.png) no-repeat;
+    background-size:100%;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-44px;
+    margin-top:-44px;
+  }
+  </style>
+</head>
+<body>
+    <header>
+        <i></i>
+    </header>
+    <div class="box">
+      <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="text" placeholder="请输入您的姓名">
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">身份证</label></div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="tel" pattern="[x][0-9]{15,16}" placeholder="请输入身份证号" oninput="if(value.length>18)value=value.slice(0,18)">
+        </div>
+      </div>
+      <div class="weui-cell weui-cell-last">
+        <div class="weui-cell__hd"><label class="weui-label">号码</label></div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="number" pattern="[0-9]*"  oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输您的手机号">
+        </div>
+      </div>
+      <a href="#" class="btn" onclick="window.location.href= 'index.html';return false">验证</a>
+    </div>
+    <span class="hint">为确保工资信息准确发放，请检查输入信息</span>
+    <script type="text/javascript">
+      document.body.addEventListener('touchstart', function () {});  //...空函数即可  使ios支持active按下
+    </script>
+</body>
+</html>
